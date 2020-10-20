@@ -15,7 +15,11 @@ const r = require('rethinkdb');
 	const router = new Router();
 
 	router.post('/api/sign-up', async ctx => {
-		console.log(ctx.request.body.email);
+		const { email } = ctx.request.body;
+
+		await conn.table('accounts').insert({
+			email
+		});
 	});
 
 	app.use(require('koa-static')('dist'));
