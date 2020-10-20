@@ -1,13 +1,30 @@
 const fs = require('fs');
 const Koa = require('koa');
 const Router = require('@koa/router');
+const bodyParser = require('koa-bodyparser');
+const r = require('rethinkdb');
 
-const app = new Koa();
-const router = new Router();
+(async () => {
 
-app.use(require('koa-static')('dist'));
-app
-  .use(router.routes())
-  .use(router.allowedMethods());
+	const conn = await r.connect({
+		db: 'wormhole'
+	});
 
-app.listen(3000);
+	const app = new Koa();
+
+	const router = new Router();
+
+	router.post('/api/sign-up', async ctx => {
+		console.log(ctx.request.body.email);
+	});
+
+	app.use(require('koa-static')('dist'));
+
+	app
+		.use(bodyParser())
+		.use(router.routes())
+		.use(router.allowedMethods());
+
+	app.listen(3000);
+
+})();
