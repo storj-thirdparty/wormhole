@@ -1,46 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0059)https://getbootstrap.com/docs/4.0/examples/floating-labels/ -->
-<html lang="en"><script data-dapp-detection="">
-(function() {
-  let alreadyInsertedMetaTag = false
-
-  function __insertDappDetected() {
-    if (!alreadyInsertedMetaTag) {
-      const meta = document.createElement('meta')
-      meta.name = 'dapp-detected'
-      document.head.appendChild(meta)
-      alreadyInsertedMetaTag = true
-    }
-  }
-
-  if (window.hasOwnProperty('web3')) {
-    // Note a closure can't be used for this var because some sites like
-    // www.wnyc.org do a second script execution via eval for some reason.
-    window.__disableDappDetectionInsertion = true
-    // Likely oldWeb3 is undefined and it has a property only because
-    // we defined it. Some sites like wnyc.org are evaling all scripts
-    // that exist again, so this is protection against multiple calls.
-    if (window.web3 === undefined) {
-      return
-    }
-    __insertDappDetected()
-  } else {
-    var oldWeb3 = window.web3
-    Object.defineProperty(window, 'web3', {
-      configurable: true,
-      set: function (val) {
-        if (!window.__disableDappDetectionInsertion)
-          __insertDappDetected()
-        oldWeb3 = val
-      },
-      get: function () {
-        if (!window.__disableDappDetectionInsertion)
-          __insertDappDetected()
-        return oldWeb3
-      }
-    })
-  }
-})()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -52,19 +13,19 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/floating-labels/">
 
     <!-- Bootstrap core CSS -->
-    <link href="./Floating labels example for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./Floating labels example for Bootstrap_files/floating-labels.css" rel="stylesheet">
+    <link href="floating-labels.css" rel="stylesheet">
   </head>
 
   <body>
     <form class="form-signin" _lpchecked="1">
       <div class="text-center mb-4">
-        <img class="mb-4" src="./Floating labels example for Bootstrap_files/bootstrap-solid.svg" alt="" width="72" height="72">
+        <img class="mb-4" src="logo.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Filezilla + Tardigrade</h1>
         <p>Secure and globally distributed cloud storage. <br/>
-          Enter your email for free 1 TB storage and bandwidth. 
+          Enter your email for free 1 TB storage and bandwidth.
       </div>
 
       <div class="form-label-group">
@@ -73,7 +34,7 @@
       </div>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Next</button>
-      <p class="mt-5 mb-3 text-muted text-center">© 2017-2018</p>
+      <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
     </form>
 
 
