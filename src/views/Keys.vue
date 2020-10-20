@@ -7,7 +7,7 @@
 		</div>
 
 		<div class="form-label-group">
-		  <input type="text" id="api-key" class="form-control" placeholder="API Key" required="" autofocus="" autocomplete="off" value="1590aDHFsiofaisjdf09jFsf09Ffopdjafosjdifaop3wiofja82nkodnfFDUIBKFPODF9fajsdflajmsdfksiofjlskmsas9dfokla">
+		  <input type="text" id="api-key" class="form-control" placeholder="API Key" required="" autofocus="" autocomplete="off" value="13YqeU4RrYQLLHHgpe8R6ukyqUKTWQ46F41NAMULb71Cq1a6ZiomCdJtetVCSZqzoTY64FvRVkx3AiyCheBaK4ty3df8TSn5wW2QygV">
 
 		  <label for="api-key">API Key</label>
 		</div>
