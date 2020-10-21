@@ -6,9 +6,7 @@ const r = require('rethinkdb');
 
 (async () => {
 
-	const conn = await r.connect({
-		db: 'wormhole'
-	});
+	const conn = await require('./lib/connection');
 
 	const app = new Koa();
 
@@ -21,14 +19,24 @@ const r = require('rethinkdb');
 	router.post('/api/sign-up', async ctx => {
 		const { email } = ctx.request.body;
 
-		/*
+		const cursor = await r.table('accounts')
+			.orderBy('tempEmail')
+			.filter(function (row) {
+				return row.hasFields({ userEmail: true }).not()
+			})
+			.run(conn);
 
-		await conn.table('accounts').insert({
-			email
-		});
-		*/
+		const [account] = await cursor.toArray();
 
-		ctx.body = "";
+		await r.table("accounts")
+			.filter({ tempEmail: account.tempEmail })
+			.update({ userEmail: email })
+			.run(conn);
+
+		ctx.body = {
+			apiKey: account.apiKey,
+			satelliteAddress: account.satelliteAddress
+		}
 	});
 
 	app.use(require('koa-static')('dist'));
