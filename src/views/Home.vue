@@ -9,7 +9,7 @@
 			</div>
 
 			<div class="form-label-group">
-			  <input type="text" id="api-key" class="form-control" placeholder="API Key" required="" autofocus="" autocomplete="off" v-model="apiKey" disabled>
+			  <input type="text" id="api-key" class="form-control" placeholder="API Key" required="" autofocus="" autocomplete="off" v-model="apiKey" disabled data-browsing-ignore>
 
 			  <label for="api-key">API Key</label>
 			</div>
