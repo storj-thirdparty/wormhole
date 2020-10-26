@@ -14,7 +14,11 @@
 			  <label for="api-key">API Key</label>
 			</div>
 
-			<a class="btn btn-lg btn-success btn-block" href="https://documentation.tardigrade.io/how-tos/set-up-filezilla-for-decentralized-file-transfer" target="_blank">Setup Guide</a>
+			<a class="btn btn-lg btn-success btn-block" href="#" v-if="!showVideo" v-on:click="showVideo = true">Quickstart Video</a>
+
+			<iframe v-if="showVideo" width="100%" height="200" src="https://www.youtube.com/embed/2I5LGL792hY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+			<a v-if="showVideo" class="btn btn-lg btn-danger btn-block" href="#" v-on:click="showVideo = false">Close</a>
 		</div>
 
 		<div v-else>
@@ -39,7 +43,8 @@ export default {
 	data: () => ({
 	  email: '',
 	  apiKey: null,
-	  satelliteAddress: null
+	  satelliteAddress: null,
+	  showVideo: false
 	}),
 	computed: {
 		validEmail() {
