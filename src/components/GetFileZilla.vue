@@ -2,7 +2,7 @@
 .get-filezilla {
 	position: absolute;
 	left: 488px;
-	top: 681px;
+	top: 620px;
 	width: 454px;
 	height: 212px;
 
