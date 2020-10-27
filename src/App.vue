@@ -1,20 +1,55 @@
+<style scoped>
+#app {
+	position: relative;
+	top: 0;
+	width: 1440px;
+
+	font-family: sans-serif;
+
+	display: block;
+	margin: 0 auto;
+
+	background: white;
+
+	font-family: 'Inter', sans-serif;
+}
+
+.tardigrade-logo {
+	position: absolute;
+	width: 156px;
+	height: 21.19px;
+
+	left: 29px;
+	top: 22px;
+}
+
+.about-tardigrade {
+	position: absolute;
+	width: 212px;
+	height: 48px;
+	left: 1228px;
+	top: 22px;
+
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 134.09%;
+
+	text-align: center;
+
+	color: #0068DC;
+
+	text-decoration: none;
+}
+</style>
+
 <template>
-  <div id="app">
+	<div id="app">
 
-	  <div class="form-signin" _lpchecked="1">
-        <div class="text-center mb-4">
-          <img class="mb-4" src="@/assets/logo.svg" alt="" width="72" height="72">
-          <h1 class="h3 mb-3 font-weight-normal">Filezilla + Tardigrade</h1>
-          <p>Secure and globally distributed cloud storage. <br/>
-            Enter your email for free 1 TB storage and bandwidth.</p>
-        </div>
+		<img src="@/assets/tardigrade.svg" class="tardigrade-logo" alt="Tardigrade">
 
+		<a class="about-tardigrade" href="#">About Tardigrade</a>
 
 		<router-view></router-view>
 
-        <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
 	</div>
-
-
-  </div>
 </template>
