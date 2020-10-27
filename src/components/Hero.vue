@@ -68,7 +68,7 @@
 
 		<img src="@/assets/tardigrade-2.svg" class="tardigrade-logo" alt="Tardigrade">
 
-		<p class="tagline">Get 1 TB Free Cloud Storage<br>Try Tardigrade with Filezilla</p>
+		<p class="tagline">Get 1 TB Free Cloud Storage<br>Try Tardigrade with FileZilla</p>
 
 		<p class="description">Tardigrade is decentralized, end-to-end encrypted cloud storage. Enter your email to get 1 TB free cloud storage, and start uploading data with FileZilla.</p>
 	</div>
