@@ -63,7 +63,7 @@
 			<div class="signup">
 				<input v-model="email" type="email" class="email" placeholder="Enter your email address">
 
-				<a v-on:click="signUp" class="button" href="#" v-bind:disabled="!validEmail">Get 1 TB Free Cloud Storage</a>
+				<a v-on:click="signUp" class="button" href="#">Get 1 TB Free Cloud Storage</a>
 			</div>
 
 			<GetFileZilla></GetFileZilla>
@@ -98,6 +98,9 @@ export default {
 	},
 	methods: {
 		async signUp() {
+			if(!this.validEmail)
+				return;
+
 			const { data } = await axios.post('/api/sign-up', {
 				email: this.email
 			});
