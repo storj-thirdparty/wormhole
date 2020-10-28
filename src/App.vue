@@ -49,7 +49,7 @@
 			<img src="@/assets/tardigrade.svg" class="tardigrade-logo" alt="Tardigrade">
 		</a>
 
-		<a class="about-tardigrade" href="#">About Tardigrade</a>
+		<a class="about-tardigrade" href="https://tardigrade.io/">About Tardigrade</a>
 
 		<router-view></router-view>
 
