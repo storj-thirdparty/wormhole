@@ -115,7 +115,7 @@ export default {
 		Keys
 	},
 	async created() {
-		const { data } = await axios.get('https://api.ipstack.com/check?access_key=fd027f23eda5344acc1bfabce62b0436');
+		const { data } = await axios.get('https://api.ipstack.com/check?access_key=5dd8fea718f2696702ad78adbc9faeab');
 
 		const satellites = {
 			'us-central-1': [41.2619, -95.8608],
