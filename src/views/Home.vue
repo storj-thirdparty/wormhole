@@ -113,6 +113,52 @@ export default {
 		Hero,
 		GetFileZilla,
 		Keys
+	},
+	async created() {
+		const { data } = await axios.get('http://api.ipstack.com/check?access_key=fd027f23eda5344acc1bfabce62b0436');
+
+		const satellites = {
+			'us-central-1': [41.2619, -95.8608],
+			'europe-west-1': [50.8274, 4.348],
+			'asia-east-1': [25.0478, 121.5318]
+		};
+
+		function distance(lat1, lon1, lat2, lon2, unit) {
+			if ((lat1 == lat2) && (lon1 == lon2)) {
+					return 0;
+			} else {
+				var radlat1 = Math.PI * lat1/180;
+				var radlat2 = Math.PI * lat2/180;
+				var theta = lon1-lon2;
+				var radtheta = Math.PI * theta/180;
+				var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+				if (dist > 1) {
+					dist = 1;
+				}
+				dist = Math.acos(dist);
+				dist = dist * 180/Math.PI;
+				dist = dist * 60 * 1.1515;
+				if (unit=="K") { dist = dist * 1.609344 }
+				if (unit=="N") { dist = dist * 0.8684 }
+				return dist;
+			}
+		}
+
+		let nearestSatellite;
+		let nearestSatelliteDistance = Infinity;
+
+		for(const satellite in satellites) {
+			const [ lat, lon ] = satellites[satellite];
+
+			const dist = distance(data.latitude, data.longitude, lat, lon);
+
+			if(dist < nearestSatelliteDistance) {
+				nearestSatellite = satellite;
+				nearestSatelliteDistance = dist;
+			}
+		}
+
+		console.log('nearest satellite is', nearestSatellite, 'at', nearestSatelliteDistance, 'miles');
 	}
 }
 
