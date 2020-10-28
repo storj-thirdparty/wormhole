@@ -45,7 +45,7 @@
 <template>
 	<div id="app">
 
-		<a href="https://tardigrade.io/"
+		<a href="https://tardigrade.io/">
 			<img src="@/assets/tardigrade.svg" class="tardigrade-logo" alt="Tardigrade">
 		</a>
 
