@@ -194,7 +194,7 @@
 		<button v-on:click="copySatelliteAddress" class="satellite-copy">Copy</button>
 
 		<label class="api-key-label" for="api-key">API Key</label>
-		<input type="text" id="api-key" class="form-control" placeholder="API Key" autocomplete="off" v-model="apiKey" disabled>
+		<input type="text" id="api-key" class="form-control fs-exclude" placeholder="API Key" autocomplete="off" v-model="apiKey" disabled>
 		<button v-on:click="copyApiKey" class="api-key-copy">Copy</button>
 
 	</div>
