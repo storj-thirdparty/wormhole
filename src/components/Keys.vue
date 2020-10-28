@@ -187,7 +187,7 @@
 
 		<p class="description">Watch the quick start video to see how easy it is to start using your free cloud storage.</p>
 
-		<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/dqj_KEepneY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/UgJw-_7mOpI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 		<label class="satellite-label" for="satellite">Satellite</label>
 		<input type="text" id="satellite" class="form-control" placeholder="Sattelite" autocomplete="off" v-model="satelliteAddress" disabled>
