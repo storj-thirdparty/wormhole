@@ -10,7 +10,9 @@ const r = require('rethinkdb');
 
 	const arr = await cursor.toArray();
 
-	console.log(arr);
+	for(const user of arr) {
+		console.log(user);
+	}
 
 	console.log('Found', arr.length, 'accounts');
 
