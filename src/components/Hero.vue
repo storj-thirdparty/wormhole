@@ -70,6 +70,6 @@
 
 		<p class="tagline">Get 1 TB Free Cloud Storage<br>Try Tardigrade with FileZilla</p>
 
-		<p class="description">Tardigrade is decentralized, end-to-end encrypted cloud storage. Enter your email to get 1 TB free cloud storage, and start uploading data with FileZilla.</p>
+		<p class="description">Tardigrade is decentralized, end-to-end encrypted cloud storage. Enter your email to get 1 TB free cloud storage for 3 months, and start uploading data with FileZilla.</p>
 	</div>
 </template>
