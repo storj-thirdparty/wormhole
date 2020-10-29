@@ -48,4 +48,6 @@ const r = require('rethinkdb');
 
 	app.listen(3000);
 
+	console.log("Wormhole has started :)");
+
 })();
