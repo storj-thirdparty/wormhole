@@ -8,6 +8,10 @@ const r = require('rethinkdb');
 		.filter(r.row('userEmail'))
 		.run(conn);
 
-	console.log(await cursor.toArray());
+	const arr = await cursor.toArray();
+
+	console.log(arr);
+
+	console.log('Found', arr.length, 'accounts');
 
 })();
