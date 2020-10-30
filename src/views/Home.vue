@@ -62,7 +62,7 @@
 				<div v-if="!apiKey">
 					<Hero></Hero>
 
-					<input v-model="email" type="email" class="form-control email" placeholder="Enter your email address">
+					<input v-model="email" type="email" class="form-control email" placeholder="Enter your email address" v-on:keyup.enter="signUp">
 					<a v-on:click="signUp" class="btn btn-primary button" href="#">Get 1TB Free Cloud Storage</a>
 
 					<GetFileZilla></GetFileZilla>
