@@ -1,78 +1,79 @@
 <style scoped>
-.signup {
-	position: absolute;
-	width: 454px;
-	height: 114px;
-	left: 489px;
-	top: 459px;
-}
+	.email {
+		width: 100%;
+		height: 48px;
+		border: 1px solid rgba(56, 75, 101, 0.4);
+		box-sizing: border-box;
+		border-radius: 6px;
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+		color: rgba(27, 37, 51, 0.8);
+		padding: 10px 15px;
+		margin-bottom: 16px;
+	}
 
-.email {
-	position: absolute;
-	left: 0;
-	top: 0;
+	::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #AFB7C1;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color:    #AFB7C1;
+	   opacity:  1;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color:    #AFB7C1;
+	   opacity:  1;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	   color:    #AFB7C1;
+	}
+	::-ms-input-placeholder { /* Microsoft Edge */
+	   color:    #AFB7C1;
+	}
+	::placeholder { /* Most modern browsers support this now. */
+	   color:    #AFB7C1;
+	}
 
-	width: 454px;
-	border: 1px solid rgba(56, 75, 101, 0.4);
-	box-sizing: border-box;
-	border-radius: 6px;
-
-	font-family: Inter;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 16px;
-	line-height: 134.09%;
-	/* or 21px */
-
-	display: flex;
-	align-items: center;
-
-	color: rgba(27, 37, 51, 0.8);
-
-	padding: 10px 15px;
-}
-
-.button {
-	position: absolute;
-	left: 0;
-	top: 69px;
-
-	width: 454px;
-
-	padding: 15px 0;
-
-	background: #0068DC;
-	border-radius: 6px;
-
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 19px;
-	text-align: center;
-	text-decoration: none;
-
-	color: #FFFFFF;
-}
+	.button {
+		width: 100%;
+		padding: 14px 0;
+		background: #0068DC;
+		border-radius: 6px;
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 19px;
+		text-align: center;
+		text-decoration: none;
+		color: #FFFFFF;
+		margin-bottom: 16px;
+		transition: all 100ms ease-in-out;
+	}
+	.button:hover {
+		background: #0059d0;
+	}
 </style>
 
 <template>
-	<div>
+	<div class="container">
+		<div class="row justify-content-center text-center">
+			<div class="col-12 col-sm-11 col-md-8 col-lg-6 col-xl-5">
 
-		<div v-if="!apiKey">
-			<Hero></Hero>
+				<div v-if="!apiKey">
+					<Hero></Hero>
 
-			<div class="signup">
-				<input v-model="email" type="email" class="email" placeholder="Enter your email address">
+					<input v-model="email" type="email" class="form-control email" placeholder="Enter your email address">
+					<a v-on:click="signUp" class="btn btn-primary button" href="#">Get 1TB Free Cloud Storage</a>
 
-				<a v-on:click="signUp" class="button" href="#">Try Tardigrade</a>
+					<GetFileZilla></GetFileZilla>
+				</div>
+
+				<div v-else>
+					<Keys v-bind:apiKey="apiKey" v-bind:satelliteAddress="satelliteAddress"></Keys>
+				</div>
+
 			</div>
-
-			<GetFileZilla></GetFileZilla>
 		</div>
-
-		<div v-else>
-			<Keys v-bind:apiKey="apiKey" v-bind:satelliteAddress="satelliteAddress"></Keys>
-		</div>
-
 	</div>
 </template>
 

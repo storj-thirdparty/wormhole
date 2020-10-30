@@ -1,55 +1,39 @@
 <style scoped>
-#app {
-	position: relative;
-	top: 0;
-	width: 1440px;
-
-	font-family: sans-serif;
-
-	display: block;
-	margin: 0 auto;
-
-	background: white;
-
-	font-family: 'Inter', sans-serif;
-}
-
-.tardigrade-logo {
-	position: absolute;
-	width: 156px;
-	height: 21.19px;
-
-	left: 29px;
-	top: 22px;
-}
-
-.about-tardigrade {
-	position: absolute;
-	width: 212px;
-	height: 48px;
-	left: 1228px;
-	top: 22px;
-
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 134.09%;
-
-	text-align: center;
-
-	color: #0068DC;
-
-	text-decoration: none;
-}
+	#app {
+		background: white;
+		font-family: 'Inter', sans-serif;
+	}
+	.tardigrade-logo {
+		width: 156px;
+		height: 21.19px;
+	}
+	.about-tardigrade {
+		font-weight: bold;
+		font-size: 16px;
+		color: #0068DC;
+	}
+	@media (max-width: 575.98px) {
+		.about-tardigrade {
+			font-size: 14px;
+		}
+	}
 </style>
 
 <template>
 	<div id="app">
 
-		<a href="https://tardigrade.io/">
-			<img src="@/assets/tardigrade.svg" class="tardigrade-logo" alt="Tardigrade">
-		</a>
-
-		<a class="about-tardigrade" href="https://tardigrade.io/">About Tardigrade</a>
+		<div class="container-fluid">
+			<div class="row my-3">
+				<div class="col text-left">
+					<a href="https://tardigrade.io/">
+						<img src="@/assets/tardigrade.svg" class="tardigrade-logo" alt="Tardigrade Logo">
+					</a>
+				</div>
+				<div class="col text-right">
+					<a class="about-tardigrade" href="https://tardigrade.io/">About Tardigrade</a>
+				</div>
+			</div>
+		</div>
 
 		<router-view></router-view>
 
