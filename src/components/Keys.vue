@@ -55,7 +55,7 @@
 <template>
 	<div>
 
-		<img class="tada" src="@/assets/tada.svg">
+		<img class="tada" src="@/assets/tada.svg" alt="Tada Emoji">
 		<h1 class="title">Congratulations!<br>You received 1 TB Free Storage</h1>
 		<p class="description">Watch the quick start video to see how easy it is to start using your free cloud storage.</p>
 
