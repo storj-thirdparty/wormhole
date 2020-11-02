@@ -2,7 +2,7 @@ const fs = require('fs');
 const parse = require('csv-parse');
 const r = require('rethinkdb');
 
-async function decodeSatelliteCSV(file, sattelite) {
+async function decodeSatelliteCSV(conn, file, sattelite) {
 	const parser = parse({
 	  delimiter: ','
 	})
@@ -67,7 +67,7 @@ async function decodeSatelliteCSV(file, sattelite) {
 (async () => {
 	const conn = await require('../lib/connection');
 
-	decodeSatelliteCSV(`${__dirname}/../wormhole-users.csv`);
-	decodeSatelliteCSV(`${__dirname}/../wormhole-users-asia.csv`);
-	decodeSatelliteCSV(`${__dirname}/../wormhole-users-uscentral.csv`);
+	decodeSatelliteCSV(conn, `${__dirname}/../wormhole-users.csv`);
+	decodeSatelliteCSV(conn, `${__dirname}/../wormhole-users-asia.csv`);
+	decodeSatelliteCSV(conn, `${__dirname}/../wormhole-users-uscentral.csv`);
 })();
