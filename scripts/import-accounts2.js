@@ -18,24 +18,44 @@ async function decodeSatelliteCSV(file, sattelite) {
 
 			const re = /\S+@\S+\.\S+/;
 
-			if(re.test(tempEmail)) {
-				const cursor = await r.table('accounts')
-					.filter({
-						tempEmail,
-						satelliteAddress
-					})
-					.run(conn);
-
-				const accounts = await cursor.toArray();
-
-				if(accounts.length === 0) {
-					await r.table('accounts').insert({
-						tempEmail,
-						satelliteAddress,
-						apiKey
-					}).run(conn);
-				}
+			if(!re.test(tempEmail)) {
+				continue;
 			}
+
+			let cursor = await r.table('accounts2')
+				.filter({
+					tempEmail,
+					satelliteAddress
+				})
+				.run(conn);
+
+			const accounts = await cursor.toArray();
+
+			if(accounts.length > 0) {
+				continue;
+			}
+
+			cursor = await r.table('accounts')
+				.filter({
+					tempEmail,
+					satelliteAddress
+				})
+				.run(conn);
+
+			const doc = {
+				tempEmail,
+				satelliteAddress,
+				apiKey
+			};
+
+			const [account] = await cursor.toArray();
+
+			if(account && account.userEmail) {
+				document.userEmail = userEmail;
+			}
+
+			await r.table('accounts2').insert(doc).run(conn);
+
 		}
 
 		process.exit(0);
