@@ -4,7 +4,7 @@ const r = require('rethinkdb');
 (async () => {
 	const conn = await require('../lib/connection');
 
-	const cursor = await r.table('accounts')
+	const cursor = await r.table('accounts2')
 		.filter(r.row('userEmail'))
 		.run(conn);
 
