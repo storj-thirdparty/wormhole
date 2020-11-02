@@ -17,10 +17,13 @@ const r = require('rethinkdb');
 	});
 
 	router.post('/api/sign-up', async ctx => {
-		const { email } = ctx.request.body;
+		const { email, satelliteAddress } = ctx.request.body;
 
 		const cursor = await r.table('accounts')
 			.orderBy('tempEmail')
+			.filter({
+				satelliteAddress
+			})
 			.filter(function (row) {
 				return row.hasFields({ userEmail: true }).not()
 			})
