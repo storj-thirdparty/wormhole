@@ -19,7 +19,7 @@ const r = require('rethinkdb');
 	router.post('/api/sign-up', async ctx => {
 		const { email, satelliteAddress } = ctx.request.body;
 
-		const cursor = await r.table('accounts')
+		const cursor = await r.table('accounts2')
 			.orderBy('tempEmail')
 			.filter({
 				satelliteAddress
@@ -31,7 +31,7 @@ const r = require('rethinkdb');
 
 		const [account] = await cursor.toArray();
 
-		await r.table("accounts")
+		await r.table("accounts2")
 			.filter({ tempEmail: account.tempEmail })
 			.update({ userEmail: email })
 			.run(conn);

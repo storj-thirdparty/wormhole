@@ -149,9 +149,19 @@ export default {
 			if(!this.validEmail)
 				return;
 
+			let satellite = undefined;
+
+			try {
+				satellite = await getNearestSatellite();
+			} catch(err) {
+				satellite = "us-central-1.tardigrade.io";
+
+				console.log('set satellite to default us-central-1');
+			}
+
 			const { data } = await axios.post('/api/sign-up', {
 				email: this.email,
-				satellite: await getNearestSatellite()
+				satellite
 			});
 
 			this.apiKey = data.apiKey;
