@@ -51,7 +51,7 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 			const [account] = await cursor.toArray();
 
 			if(account && account.userEmail) {
-				document.userEmail = userEmail;
+				doc.userEmail = userEmail;
 			}
 
 			await r.table('accounts2').insert(doc).run(conn);
