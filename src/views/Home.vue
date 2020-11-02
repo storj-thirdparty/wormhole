@@ -161,7 +161,7 @@ export default {
 
 			const { data } = await axios.post('/api/sign-up', {
 				email: this.email,
-				satellite
+				satelliteAddress: satellite
 			});
 
 			this.apiKey = data.apiKey;
@@ -174,9 +174,6 @@ export default {
 		Keys
 	},
 	async created() {
-
-
-		console.log('nearest satellite is', nearestSatellite, 'at', nearestSatelliteDistance, 'miles');
 	}
 }
 
