@@ -63,7 +63,7 @@
 					<Hero></Hero>
 
 					<input v-model="email" type="email" class="form-control email" placeholder="Enter your email address" v-on:keyup.enter="signUp">
-					<a v-on:click="signUp" class="btn btn-primary button signup-btn" href="#">Get 1TB Free Cloud Storage</a>
+					<button v-on:click="signUp" class="btn btn-primary button signup-btn" href="#">Get 1TB Free Cloud Storage</button>
 
 					<GetFileZilla></GetFileZilla>
 				</div>
