@@ -32,7 +32,10 @@ const r = require('rethinkdb');
 		const [account] = await cursor.toArray();
 
 		await r.table("accounts2")
-			.filter({ tempEmail: account.tempEmail })
+			.filter({
+				tempEmail: account.tempEmail,
+				satelliteAddress
+			})
 			.update({ userEmail: email })
 			.run(conn);
 
