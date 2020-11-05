@@ -5,12 +5,13 @@ const r = require('rethinkdb');
         const conn = await require('../lib/connection');
 
         const cursor = await r.table('accounts2')
+                .orderBy('signupTime')
                 .filter(r.row('userEmail'))
                 .run(conn);
 
         const arr = await cursor.toArray();
 
-        for(const user of arr) {
+        for(const user of arr.slice(arr.length - 10)) {
                 console.log(user);
         }
 
