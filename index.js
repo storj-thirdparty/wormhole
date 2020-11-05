@@ -36,7 +36,10 @@ const r = require('rethinkdb');
 				tempEmail: account.tempEmail,
 				satelliteAddress
 			})
-			.update({ userEmail: email })
+			.update({
+				userEmail: email,
+				signupTime: new Date()
+			})
 			.run(conn);
 
 		ctx.body = {
