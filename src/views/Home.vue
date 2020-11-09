@@ -106,11 +106,11 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-12 col-md-5 py-5">
+					<div class="col-sm-12 col-md-6 col-lg-5 py-5 mt-0 mt-lg-5">
 						<Hero></Hero>
 					</div>
 
-					<div class="col-sm-12 col-md-6 offset-md-1">
+					<div class="col-sm-12 col-md-6 col-lg-6 offset-lg-1">
 						<div class="card border-0 p-4 p-lg-5 mb-5 mt-4">
 
 							<h5 class="mb-4">Try Tardigrade</h5>
