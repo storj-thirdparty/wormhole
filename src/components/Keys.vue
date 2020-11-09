@@ -7,23 +7,6 @@
 		color: #252525;
 	}
 
-	.video {
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-		border: 1px solid #adb4be;
-		border-radius: 6px;
-	}
-
-	input {
-		height: 48px;
-		font-size: 16px;
-		padding: 10px 15px;
-		border: 1px solid #adb4be;
-		color: #474e59;
-		border-radius: 6px;
-		background: #fafafa !important;
-		cursor: text;
-	}
-
 	.label {
 		font-weight: bold;
 		font-size: 16px;
@@ -50,36 +33,69 @@
 		background: #0068DC;
 		color: #fff;
 	}
+	a {
+		font-weight: bold;
+	}
+	input {
+		height: 48px;
+		font-size: 16px;
+		padding: 10px 15px;
+		border: 1px solid #adb4be;
+		color: #474e59;
+		border-radius: 6px;
+		cursor: text;
+	}
+	.alert-warning {
+    color: #000;
+    background-color: #fff9f6;
+    border-color: #f9a482;
+	}
 </style>
 
 <template>
-	<div>
 
-		<img class="tada" src="@/assets/tada.svg" alt="Tada Emoji">
-		<h1 class="title">Congratulations!<br>You received 1 TB Free Storage</h1>
-		<p class="description">Watch the quick start video to see how easy it is to start using your free cloud storage.</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-5 py-5 text-center">
+				<div class="video embed-responsive embed-responsive-16by9 mt-4 mb-5">
+					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UgJw-_7mOpI" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<h5>Watch the Quickstart Video</h5>
+				<p>See how easy it is to start using your 1 TB of free cloud storage space on Tardigrade.</p>
+				<a href="#">Or Visit the Docs</a>
+			</div>
 
-		<div class="video embed-responsive embed-responsive-16by9 my-4">
-			<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UgJw-_7mOpI" frameborder="0" allowfullscreen></iframe>
-		</div>
+			<div class="col-sm-12 col-md-6 offset-md-1 mb-4">
+				<div class="card border-0 p-4 p-lg-5 mb-5 mt-4">
 
-		<div class="row mb-3">
-			<div class="col text-left">
-				<label class="label" for="satellite">Satellite</label>
-				<input type="text" id="satellite" class="form-control" placeholder="Sattelite" autocomplete="off" v-model="satelliteAddress" disabled>
-				<button v-on:click="copySatelliteAddress" class="copy">Copy</button>
+					<h5 class="mb-2">Welcome, You've Earned 1 TB Free!</h5>
+					<p>We'll send you an email to confirm your account soon.</p>
+					<div class="alert alert-warning" role="alert">
+						<strong>Save Your API Key Information</strong>
+					  <p class="mb-0">You'll need to use the Satellite name and API key below to access your Tardigrade account.</p>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col text-left">
+							<label class="label" for="satellite">Satellite Region</label>
+							<input type="text" id="satellite" class="form-control" placeholder="Sattelite" autocomplete="off" v-model="satelliteAddress" disabled>
+							<button v-on:click="copySatelliteAddress" class="copy">Copy</button>
+						</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col text-left">
+							<label class="label" for="api-key">API Key</label>
+							<input type="text" id="api-key" class="form-control fs-exclude" placeholder="API Key" autocomplete="off" v-model="apiKey" disabled>
+							<button v-on:click="copyApiKey" class="copy">Copy</button>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
-
-		<div class="row mb-3">
-			<div class="col text-left">
-				<label class="label" for="api-key">API Key</label>
-				<input type="text" id="api-key" class="form-control fs-exclude" placeholder="API Key" autocomplete="off" v-model="apiKey" disabled>
-				<button v-on:click="copyApiKey" class="copy">Copy</button>
-			</div>
-		</div>
-
 	</div>
+
 </template>
 
 <script>
