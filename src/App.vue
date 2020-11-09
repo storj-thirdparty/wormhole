@@ -482,14 +482,14 @@
 					<div class="footer__content-item col-sm-12 col-md-12 col-lg-2 mt-2">
 						<a href="/" class="footer__logo"><img class="footer__logo-img img-fluid" src="@/assets/tar-logo-blue-horizontal.svg" alt="Tardigrade.io"></a>
 					</div>
-					<div class="footer__content-item offset-lg-1 col-6 col-sm-6 col-md-6 col-lg-2">
+					<div class="footer__content-item offset-lg-1 col-6 col-sm-6 col-md-6 col-lg-3">
 						<h5 class="text-white">Legal</h5>
 						<ul class="list-unstyled">
 							<li><a class="footer__link" href="https://tardigrade.io/terms-of-service">Terms of Service</a></li>
 							<li><a class="footer__link" href="https://storj.io/privacy-policy/">Privacy Policy</a></li>
 						</ul>
 					</div>
-					<div class="footer__content-item col-6 col-sm-6 col-md-6 col-lg-2">
+					<div class="footer__content-item col-6 col-sm-6 col-md-6 col-lg-3">
 						<h5 class="text-white">Resources</h5>
 						<ul class="list-unstyled">
 							<li><a class="footer__link" href="https://documentation.tardigrade.io/">Docs</a></li>
@@ -498,7 +498,7 @@
 							<li><a class="footer__link" href="https://support.tardigrade.io/hc/en-us">Support</a></li>
 						</ul>
 					</div>
-					<div class="footer__content-item col-6 col-sm-6 col-md-6 col-lg-2">
+					<div class="footer__content-item col-6 col-sm-6 col-md-6 col-lg-3">
 						<h5 class="text-white">Company</h5>
 						<ul class="list-unstyled">
 							<li><a class="footer__link" href="https://tardigrade.io/how-it-works">How it Works</a></li>
@@ -507,7 +507,7 @@
 							<li><a class="footer__link" href="https://tardigrade.io/press-kit">Press</a></li>
 						</ul>
 					</div>
-					<div class="footer__content-item footer__content-item-btn col-6 col-md-6 col-lg-3">
+					<!-- <div class="footer__content-item footer__content-item-btn col-6 col-md-6 col-lg-3">
 						<h5 class="text-white">Stay in Touch</h5>
 						<p class="footer-message text-muted">For the best experience, disable ad blockers and use Chrome or Edge.</p>
 						<div id="mc_embed_signup">
@@ -522,7 +522,7 @@
 								</div>
 							</form>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<div class="footer__content py-5">
 					<div class="row">
