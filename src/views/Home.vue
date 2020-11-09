@@ -141,7 +141,7 @@
 						</div>
 
 						<div class="col-sm-12 col-md-6 offset-md-1">
-							<div class="row mb-4">
+							<div class="row mb-5">
 								<div class="col-1">
 									<img src="@/assets/tar-ico-secure.svg" alt="100% Secure" height="32" width="32">
 								</div>
@@ -151,7 +151,7 @@
 								</div>
 							</div>
 
-							<div class="row mb-4">
+							<div class="row mb-5">
 								<div class="col-1">
 									<img src="@/assets/tar-ico-durable.svg" alt="Remarkably Durable" height="32" width="32">
 								</div>
@@ -161,7 +161,7 @@
 								</div>
 							</div>
 
-							<div class="row mb-4">
+							<div class="row mb-5">
 								<div class="col-1">
 									<img src="@/assets/tar-ico-money.svg" alt="Predictable Pricing" height="32" width="32">
 								</div>
@@ -171,7 +171,7 @@
 								</div>
 							</div>
 
-							<div class="row mb-4">
+							<div class="row mb-5">
 								<div class="col-1">
 									<img src="@/assets/tar-ico-global.svg" alt="Globally Distributed" height="32" width="32">
 								</div>
