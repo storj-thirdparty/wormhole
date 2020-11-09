@@ -1,9 +1,6 @@
 <style scoped>
-	h2 {
-		font-weight: bold;
-	}
 	@media (max-width: 575.98px) {
-		h2 {
+		.hero-title {
 			font-size: 1.5rem;
 		}
 	}
@@ -13,9 +10,6 @@
 	.tardigrade-logo {
 		top: 9px;
 		left: 293px;
-	}
-	.description {
-		line-height: 1.5;
 	}
 </style>
 
@@ -33,9 +27,8 @@
 			</div>
 		</div>
 
-		<h2>Get 1 TB Free Cloud Storage</h2>
-		<h2>Try Tardigrade with FileZilla</h2>
+		<h2 class="hero-title">Get 1 TB Free When You Try Tardigrade With Filezilla</h2>
 
-		<p class="description my-4">Tardigrade is decentralized, end-to-end encrypted cloud storage. Enter your email to get 1 TB free cloud storage for 3 months, and start uploading data with FileZilla.</p>
+		<p class="description my-4">Tardigrade is safer, faster, decentralized object storage at a fraction of the cost. Get 1 TB free when you join Tardigrade, and start uploading data with FileZilla in just a few easy steps.</p>
 	</div>
 </template>
