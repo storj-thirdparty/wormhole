@@ -437,7 +437,7 @@
 										<div class="dropdown-divider"></div>
 											<a class="dropdown-item" href="https://documentation.tardigrade.io/">Docs<img class="dropdown-icon" src="@/assets/blue-carrot.svg" height="13" width="13"></a>
 											<a class="dropdown-item" href="https://tardigrade.io/connectors">Connectors<img class="dropdown-icon" src="@/assets/blue-carrot.svg" height="13" width="13"></a>
-											<a class="dropdown-item" href="/community">Community<img src="@/assets/blue-carrot.svg" height="13" width="13"></a>
+											<a class="dropdown-item" href="https://tardigrade.io/community/">Community<img src="@/assets/blue-carrot.svg" height="13" width="13"></a>
 											<a class="dropdown-item" href="https://support.tardigrade.io/hc/en-us">Support<img class="dropdown-icon" src="@/assets/blue-carrot.svg" height="13" width="13"></a></div>
 								</li>
 								<li class="btn-group nav-item mr-3 active">
