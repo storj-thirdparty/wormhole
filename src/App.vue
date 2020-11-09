@@ -120,7 +120,6 @@
 	    color:#93a1af
 	}
 	.dropdown-menu .dropdown-item{
-	    font-family:Roboto;
 	    font-size:14px
 	}
 	.dropdown-menu .dropdown-item:hover{
@@ -299,7 +298,6 @@
 	    line-height:40px
 	}
 	.footer__content-address{
-	    font-family:Roboto;
 	    font-weight:300;
 	    font-size:13px;
 	    line-height:28px;
@@ -327,7 +325,6 @@
 	    transition:all .15s ease-in-out;
 	    height:50%;
 	    font-size:12px;
-	    font-family:Roboto
 	}
 	.footer__email-input:focus{
 	    outline:0;
