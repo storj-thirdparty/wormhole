@@ -114,12 +114,6 @@
 						<div class="card border-0 p-4 p-lg-5 mb-5 mt-4">
 
 							<h5 class="mb-4">Try Tardigrade</h5>
-							<label for="satelliteSelect">Satellite Region</label>
-							<select class="custom-select mr-sm-2" id="satelliteSelect">
-				        <option value="us1" selected>US Central 1</option>
-				        <option value="asia1">Asia East 1</option>
-				        <option value="europe1">Europe West 1</option>
-				      </select>
 
 							<label for="emailAddress">Email Address</label>
 							<input v-model="email" type="email" class="form-control email" placeholder="example@email.com" v-on:keyup.enter="signUp" id="emailAddress">
