@@ -62,7 +62,7 @@
 				</div>
 				<h5>Watch the Quickstart Video</h5>
 				<p>See how easy it is to start using your 1 TB of free cloud storage space on Tardigrade.</p>
-				<a href="#">Or Visit the Docs</a>
+				<a href="https://documentation.tardigrade.io/how-tos/set-up-filezilla-for-decentralized-file-transfer" target="_blank">Or Visit the Docs</a>
 			</div>
 
 			<div class="col-sm-12 col-md-6 offset-md-1 mb-4">
