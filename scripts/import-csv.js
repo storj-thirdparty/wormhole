@@ -35,27 +35,12 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 				continue;
 			}
 
-			cursor = await r.table('accounts')
-				.filter({
+			await r.table('accounts2')
+				.insert({
 					tempEmail,
-					satelliteAddress
-				})
-				.run(conn);
-
-			const doc = {
-				tempEmail,
-				satelliteAddress,
-				apiKey
-			};
-
-			const [account] = await cursor.toArray();
-
-			if(account && account.userEmail) {
-				doc.userEmail = account.userEmail;
-			}
-
-			await r.table('accounts2').insert(doc).run(conn);
-
+					satelliteAddress,
+					apiKey
+				}).run(conn);
 		}
 
 		process.exit(0);
@@ -67,7 +52,5 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 (async () => {
 	const conn = await require('../lib/connection');
 
-	decodeSatelliteCSV(conn, `${__dirname}/../wormhole-users.csv`);
-	decodeSatelliteCSV(conn, `${__dirname}/../wormhole-users-asia.csv`);
-	decodeSatelliteCSV(conn, `${__dirname}/../wormhole-users-uscentral.csv`);
+	decodeSatelliteCSV(conn, process.argv[2]);
 })();
