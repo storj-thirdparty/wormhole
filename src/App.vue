@@ -270,7 +270,6 @@
 	}
 	.footer__link{
 	    color:#fff;
-	    font-family:Poppins;
 	    font-size:12px;
 	    line-height:28px;
 	    opacity:.4;
@@ -350,7 +349,6 @@
 	    transition:all .15s ease-in-out;
 	    height:50%;
 	    font-size:12px;
-	    font-family:Poppins
 	}
 	.footer .footer__content h5{
 	    margin-bottom:0
