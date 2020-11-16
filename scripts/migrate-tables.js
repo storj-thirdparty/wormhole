@@ -4,7 +4,7 @@ const r = require('rethinkdb');
 
 async function decodeSatelliteCSV(conn, file, sattelite) {
 	const parser = parse({
-	  delimiter: ','
+		delimiter: ','
 	})
 
 	parser.on('readable', async () => {
@@ -12,13 +12,13 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 
 		let i = 0;
 
-		while(record = parser.read()) {
+		while (record = parser.read()) {
 			console.log(i++);
-			const [ tempEmail, satelliteAddress, apiKey ] = record;
+			const [tempEmail, satelliteAddress, apiKey] = record;
 
 			const re = /\S+@\S+\.\S+/;
 
-			if(!re.test(tempEmail)) {
+			if (!re.test(tempEmail)) {
 				continue;
 			}
 
@@ -31,7 +31,7 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 
 			const accounts = await cursor.toArray();
 
-			if(accounts.length > 0) {
+			if (accounts.length > 0) {
 				continue;
 			}
 
@@ -50,7 +50,7 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 
 			const [account] = await cursor.toArray();
 
-			if(account && account.userEmail) {
+			if (account && account.userEmail) {
 				doc.userEmail = account.userEmail;
 			}
 

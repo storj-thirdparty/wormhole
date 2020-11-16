@@ -14,7 +14,7 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 
 		while (record = parser.read()) {
 			console.log(i++);
-			const [tempEmail, satelliteAddress, apiKey] = record;
+			const [tempEmail, fullName, password] = record;
 
 			const re = /\S+@\S+\.\S+/;
 
@@ -22,24 +22,12 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 				continue;
 			}
 
-			let cursor = await r.table('accounts2')
-				.filter({
-					tempEmail,
-					satelliteAddress
-				})
-				.run(conn);
-
-			const accounts = await cursor.toArray();
-
-			if (accounts.length > 0) {
-				continue;
-			}
-
 			await r.table('accounts2')
-				.insert({
-					tempEmail,
-					satelliteAddress,
+				.filter({
 					apiKey
+				})
+				.update({
+					password
 				}).run(conn);
 		}
 

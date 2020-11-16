@@ -9,7 +9,7 @@ const r = require('rethinkdb');
 		primaryKey: 'tempEmail'
 	}).run(conn);
 
-	for(let i = 0; i < 1000; i++) {
+	for (let i = 0; i < 1000; i++) {
 		await r.db('wormhole').table('accounts').insert({
 			tempEmail: `wormhole-dev-test-${i}@storj.io`,
 			satelliteAddress: 'my-fake-satellite.tardigrade.io',
