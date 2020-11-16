@@ -14,7 +14,15 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 
 		while (record = parser.read()) {
 			console.log(i++);
-			const [tempEmail, fullName, password] = record;
+			const [
+				tempEmail,
+				fullName,
+				password,
+				userId,
+				couponId,
+				projectId,
+				apiKey
+			] = record;
 
 			const re = /\S+@\S+\.\S+/;
 
