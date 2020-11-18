@@ -91,7 +91,12 @@
 						</div>
 					</div>
 
+
+					<a v-bind:href="loginUrl" class="btn btn-primary button signup-btn">Login to Tardigrade</a>
+
 				</div>
+
+
 			</div>
 		</div>
 	</div>
@@ -110,6 +115,11 @@ export default {
 		},
 		copyApiKey() {
 			window.navigator.clipboard.writeText(this.apiKey);
+		}
+	},
+	computed: {
+		loginUrl() {
+			return `https://${this.satelliteAddress}/login`;
 		}
 	}
 }

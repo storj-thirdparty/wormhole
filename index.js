@@ -1,3 +1,4 @@
+const axios = require('axios');
 const fs = require('fs');
 const Koa = require('koa');
 const Router = require('@koa/router');
@@ -17,7 +18,7 @@ const r = require('rethinkdb');
 	});
 
 	router.post('/api/sign-up', async ctx => {
-		const { email, satelliteAddress } = ctx.request.body;
+		const { email, satelliteAddress, password } = ctx.request.body;
 
 		const cursor = await r.table('accounts2')
 			.orderBy('tempEmail')
@@ -41,6 +42,46 @@ const r = require('rethinkdb');
 				signupTime: new Date()
 			})
 			.run(conn);
+
+		let token = (await axios.post(`https://${satelliteAddress}/api/v0/auth/token`, {
+			email: account.tempEmail,
+			password: account.password
+		})).data;
+
+		console.log({ token });
+
+		await axios.post(`https://${satelliteAddress}/api/v0/auth/account/change-email`, {
+			newEmail: email
+		}, {
+			headers: {
+                Cookie: `_tokenKey=${token};`
+			}
+		});
+
+		console.log('changed email');
+
+		token = (await axios.post(`https://${satelliteAddress}/api/v0/auth/token`, {
+			email,
+			password: account.password
+		})).data;
+
+		console.log('reauthenticated');
+
+		console.log({
+			email,
+
+			currentPassword: account.password,
+			newPassword: password
+		});
+
+		await axios.post(`https://${satelliteAddress}/api/v0/auth/account/change-password`, {
+			password: account.password,
+			newPassword: password
+		}, {
+			headers: {
+                Cookie: `_tokenKey=${token};`
+			}
+		});
 
 		ctx.body = {
 			apiKey: account.apiKey,

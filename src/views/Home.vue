@@ -118,7 +118,11 @@
 							<label for="emailAddress">Email Address</label>
 							<input v-model="email" type="email" class="form-control email" placeholder="example@email.com" v-on:keyup.enter="signUp" id="emailAddress">
 
+							<label for="password">Password</label>
+							<input v-model="password" type="password" class="form-control email" placeholder="••••••••••" v-on:keyup.enter="signUp" id="password">
+
 							<button v-on:click="signUp" class="btn btn-primary button signup-btn">Try Tardigrade</button>
+
 
 							<GetFileZilla></GetFileZilla>
 
@@ -253,6 +257,7 @@ export default {
 	name: 'Home',
 	data: () => ({
 		email: '',
+		password: '',
 		apiKey: null,
 		satelliteAddress: null
 	}),
@@ -279,7 +284,8 @@ export default {
 
 			const { data } = await axios.post('/api/sign-up', {
 				email: this.email,
-				satelliteAddress: satellite
+				satelliteAddress: satellite,
+				password: this.password
 			});
 
 			this.apiKey = data.apiKey;
