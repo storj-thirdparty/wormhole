@@ -93,6 +93,16 @@ const r = require('rethinkdb');
 			}
 		});
 
+		await r.table("accounts2")
+			.filter({
+				tempEmail: account.tempEmail,
+				satelliteAddress
+			})
+			.update({
+				flipped: true
+			})
+			.run(conn);
+
 		ctx.body = {
 			apiKey: account.apiKey,
 			satelliteAddress: account.satelliteAddress
