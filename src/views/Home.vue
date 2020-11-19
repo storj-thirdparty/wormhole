@@ -115,11 +115,17 @@
 
 							<h5 class="mb-4">Try Tardigrade</h5>
 
+							<div v-if="error" class="alert alert-danger" role="alert">
+								{{error}}
+							</div>
+
 							<label for="emailAddress">Email Address</label>
 							<input v-model="email" type="email" class="form-control email" placeholder="example@email.com" v-on:keyup.enter="signUp" id="emailAddress">
 
 							<label for="password">Password</label>
 							<input v-model="password" type="password" class="form-control email" placeholder="••••••••••" v-on:keyup.enter="signUp" id="password">
+
+							<!--<div class="h-captcha" data-sitekey="7c6b4988-7508-41de-87e4-c08d69efbc5e"></div>-->
 
 							<button v-on:click="signUp" class="btn btn-primary button signup-btn">Try Tardigrade</button>
 
@@ -259,7 +265,8 @@ export default {
 		email: '',
 		password: '',
 		apiKey: null,
-		satelliteAddress: null
+		satelliteAddress: null,
+		error: null
 	}),
 	computed: {
 		validEmail() {
@@ -282,14 +289,24 @@ export default {
 				console.log('set satellite to default us-central-1');
 			}
 
-			const { data } = await axios.post('/api/sign-up', {
-				email: this.email,
-				satelliteAddress: satellite,
-				password: this.password
-			});
+			try {
+				const { data } = await axios.post('/api/sign-up', {
+					email: this.email,
+					satelliteAddress: satellite,
+					password: this.password
+				});
 
-			this.apiKey = data.apiKey;
-			this.satelliteAddress = data.satelliteAddress;
+				if(typeof data.error === 'string') {
+					this.error = data.error;
+
+					return;
+				}
+
+				this.apiKey = data.apiKey;
+				this.satelliteAddress = data.satelliteAddress;
+			} catch(err) {
+				console.log(err);
+			}
 		}
 	},
 	components: {

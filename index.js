@@ -50,13 +50,23 @@ const r = require('rethinkdb');
 
 		console.log({ token });
 
-		await axios.post(`https://${satelliteAddress}/api/v0/auth/account/change-email`, {
-			newEmail: email
-		}, {
-			headers: {
-                Cookie: `_tokenKey=${token};`
+		try {
+			await axios.post(`https://${satelliteAddress}/api/v0/auth/account/change-email`, {
+				newEmail: email
+			}, {
+				headers: {
+	                Cookie: `_tokenKey=${token};`
+				}
+			});
+		} catch(err) {
+			if(err.response.status === 409) {
+				ctx.body = {
+					error: 'Email already in use'
+				};
 			}
-		});
+
+			return;
+		}
 
 		console.log('changed email');
 
