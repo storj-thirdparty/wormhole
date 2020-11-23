@@ -16,6 +16,7 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 			console.log(i++);
 			const [
 				tempEmail,
+				satelliteAddress,
 				fullName,
 				password,
 				userId,
@@ -31,11 +32,13 @@ async function decodeSatelliteCSV(conn, file, sattelite) {
 			}
 
 			await r.table('accounts2')
-				.filter({
+				.insert({
+					tempEmail,
+					satelliteAddress,
+					password,
+					userId,
+					projectId,
 					apiKey
-				})
-				.update({
-					password
 				}).run(conn);
 		}
 

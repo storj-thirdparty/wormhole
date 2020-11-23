@@ -106,3 +106,4 @@ dist
 rethinkdb_data
 
 *.csv
+*.csv.full
