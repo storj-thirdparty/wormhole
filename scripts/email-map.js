@@ -10,11 +10,14 @@ const stringify = util.promisify(stringifyCb);
 	const cursor = await r.table('accounts2')
 		.orderBy('signupTime')
 		.filter(r.row('userEmail'))
+		.pluck('satelliteAddress', 'tempEmail', 'userEmail')
 		.run(conn);
 
 	const arr = await cursor.toArray();
 
-	console.log(await stringify(arr));
+
+
+	process.stdout.write(await stringify(arr));
 
 	process.exit(0);
 
